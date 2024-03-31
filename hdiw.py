@@ -10,6 +10,7 @@ parser = ArgumentParser()
 
 parser.add_argument("dir", help="The directory of the program")
 
+parser.add_argument("-v", action="store_true")
 args: Namespace = parser.parse_args()
 
 init()
@@ -18,7 +19,9 @@ results: Results = Results()
 
 print(f"{Fore.GREEN}Gathering Info")
 
-for f in utils.get_file_descendents(args.dir):
+for f in utils.get_file_descendents(args.dir, args.v):
+	if args.v:
+		print(f"{Fore.LIGHTGREEN_EX}Gathering results for {Fore.GREEN}{f}{Fore.RESET}")
 
 	# Godot
 	if "godot" in f.file_name.lower():
@@ -39,6 +42,7 @@ for f in utils.get_file_descendents(args.dir):
 	if "MonoBleedingEdge" in f.file_name:
 		results.add_to_results("Unity", 100, "Game Engines")
 	
+	
 	if "UnityCrashHandler64" in f.file_name:
 		results.add_to_results("Unity", 100, "Game Engines")
 	
@@ -48,6 +52,10 @@ for f in utils.get_file_descendents(args.dir):
 	# Unreal Engine 4
 	if "UE4" in f.file_name:
 		results.add_to_results("Unreal Engine 4", 100, "Game Engines")
+	
+	# Ubisoft Anvil
+	if f.file_name.endswith(".forge"):
+		results.add_to_results("Ubisoft Anvil", 100, "Game Engines")
 	
 	# Source Engine
 	if f.file_name.lower().endswith(".vpk"):
@@ -89,11 +97,11 @@ for f in utils.get_file_descendents(args.dir):
 	
 	# Steamworks API
 	if "steam_api" in f.file_name:
-		results.add_to_results("Steamworks API", 100, "API")
+		results.add_to_results("Steamworks API", 100, "APIs")
 	
 	# .NET
 	if "dotnet" in f.file_name.lower():
-		results.add_to_results(".NET Framework", 100, "API")
+		results.add_to_results(".NET Framework", 100, "APIs")
 
 	# SQLite
 	if "sqlite" in f.file_name.lower():

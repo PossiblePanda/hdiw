@@ -19,7 +19,8 @@ name_colors = {
 	"php": Fore.MAGENTA,
 	"lua": Fore.LIGHTBLUE_EX,
 	"shell script": Fore.BLACK,
-	"love framework": Fore.LIGHTBLUE_EX
+	"love framework": Fore.LIGHTBLUE_EX,
+	"ubisoft anvil": Fore.LIGHTYELLOW_EX
 }
 
 class Result:

@@ -1,13 +1,18 @@
 import os
+from colorama import Fore
 from classes.File import *
 
-def get_file_descendents(path):
+def get_file_descendents(path, verbose):
 	files = [File(path)]
 	for f in os.listdir(path):
 		global_path: str = f"{path}\\{f}"
-
-		files.append(File(global_path))
-		if os.path.isdir(global_path):
-			for v in get_file_descendents(global_path):
-				files.append(v)
+		if verbose:
+			print(f"{Fore.LIGHTGREEN_EX}Gathering directories for {Fore.GREEN}{global_path}{Fore.RESET}")
+		try:
+			files.append(File(global_path))
+			if os.path.isdir(global_path):
+				for v in get_file_descendents(global_path, verbose):
+					files.append(v)
+		except:
+			print(f"{Fore.LIGHTRED_EX}Failed to open {Fore.RED}{global_path}")
 	return files
