@@ -1,0 +1,171 @@
+{
+	"file-extension": {
+		".eft": {
+			"name": "EFT Themes",
+			"chance": 100,
+			"category": "Other"
+		},
+		".gd": {
+			"name": "Godot",
+			"chance": 100,
+			"category": "Game Engines"
+		},
+		".forge": {
+			"name": "Ubisoft Anvil",
+			"chance": 100,
+			"category": "Game Engines"
+		},
+		".vpk": {
+			"name": "Source Engine",
+			"chance": 95,
+			"category": "Game Engines"
+		},
+		".py": {
+			"name": "Python",
+			"chance": 100,
+			"category": "Programming Languages"
+		},
+		".js": {
+			"name": "Javascript",
+			"chance": 100,
+			"category": "Programming Languages"
+		},
+		".cs": {
+			"name": "C#",
+			"chance": 100,
+			"category": "Programming Languages"
+		},
+		".cpp": {
+			"name": "C++",
+			"chance": 100,
+			"category": "Programming Languages"
+		},
+		".php": {
+			"name": "PHP",
+			"chance": 100,
+			"category": "Programming Languages"
+		},
+		".jar": {
+			"name": "Java",
+			"chance": 100,
+			"category": "Programming Languages"
+		},
+		".lua": {
+			"name": "Lua",
+			"chance": 100,
+			"category": "Programming Languages"
+		},
+		".luau": {
+			"name": "Lua",
+			"chance": 100,
+			"category": "Programming Languages"
+		},
+		".xnb": {
+			"name": "Microsoft XNA",
+			"chance": 100,
+			"category": "Programming Languages"
+		},
+		".jsx": {
+			"name": "React JS",
+			"chance": 100,
+			"category": "Frameworks"
+		},
+		".vue": {
+			"name": "Vue JS",
+			"chance": 100,
+			"category": "Frameworks"
+		},
+		".sh": {
+			"name": "Shell Script",
+			"chance": 100,
+			"category": "Other"
+		}
+	},
+	"name-contains": {
+		"godot": {
+			"name": "Godot",
+			"chance": 100,
+			"category": "Game Engines"
+		},
+		"cocos2d": {
+			"name": "Cocos2D",
+			"chance": 100,
+			"category": "Game Engines"
+		},
+		"love.exe": {
+			"name": "Love Framework",
+			"chance": 100,
+			"category": "Game Engines"
+		},
+		"MonoBleedingEdge": {
+			"name": "Unity",
+			"chance": 100,
+			"category": "Game Engines"
+		},
+		"UnityCrashHandler": {
+			"name": "Unity",
+			"chance": 100,
+			"category": "Game Engines"
+		},
+		"UnityPlayer": {
+			"name": "Unity",
+			"chance": 100,
+			"category": "Game Engines"
+		},
+		"UE4": {
+			"name": "Unreal Engine 4",
+			"chance": 100,
+			"category": "Game Engines"
+		},
+		"xnaf40_redist": {
+			"name": "Microsoft XNA",
+			"chance": 100,
+			"category": "Game Engines"
+		},
+		"steam_api": {
+			"name": "Steamworks API",
+			"chance": 100,
+			"category": "APIs"
+		},
+		"dotnet": {
+			"name": ".NET Framework",
+			"chance": 100,
+			"category": "Frameworks"
+		},
+		"sqlite": {
+			"name": "SQLite",
+			"chance": 100,
+			"category": "Databases"
+		},
+		"ffmpeg": {
+			"name": "FFMPEG",
+			"chance": 100,
+			"category": "Other"
+		}
+	},
+	"name-colors": {
+		"godot": "CYAN",
+		"unity": "LIGHTBLACK_EX",
+		"cocos2d": "BLUE",
+		"steamworks api": "LIGHTCYAN_EX",
+		"microsoft xna": "GREEN",
+		".net framework": "MAGENTA",
+		"eft themes": "LIGHTGREEN_EX",
+		"python": "YELLOW",
+		"c#": "LIGHTYELLOW_EX",
+		"c++": "LIGHTBLACK_EX",
+		"java": "LIGHTRED_EX",
+		"source engine": "LIGHTRED_EX",
+		"sqlite": "LIGHTGREEN_EX",
+		"unreal engine 4": "BLACK",
+		"ffmpeg": "LIGHTRED_EX",
+		"php": "MAGENTA",
+		"lua": "LIGHTBLUE_EX",
+		"shell script": "BLACK",
+		"love framework": "LIGHTBLUE_EX",
+		"ubisoft anvil": "LIGHTYELLOW_EX",
+		"javascript": "LIGHTRED_EX",
+		"react js": "LIGHTBLUE_EX",
+		"vue js": "LIGHTGREEN_EX"
+	}
+}

@@ -15,3 +15,34 @@ The most common way of using HDIW is on games, you just need to copy the game's 
 ## Installation
 
 To install HDIW you can simply just download the zip from github, and then unzip it. To test if it works you can type run the command `python3 hdiw.py -h`. If you get a help message, you have succesfully installed HDIW!
+
+## Contributing
+
+There are many things that HDIW needs help with, whether it's adding new Game Engines / Frameworks, or optimizations, bugfixes, or quality of life features. We're always open to accepting pull requests!
+
+### Adding New Technologies
+
+To add a new technology, open the `main.json` file. You will see `file-extension`, `name-contains`, and `name-colors`. Let's say you want to make files ending with .py add Python as a result, you would add the following to `file-extension`:
+
+```json
+".py": {
+	"name": "Python",
+	"chance": 100,
+	"category": "Programming Languages"
+}
+```
+
+`name`: The name of the technology
+`chance`: How certain you are that the directory contains this technology.
+`category`: The category of thetechnology
+
+You can also use `name-contains` the same way, except make the key of the dictionary the text you want to look for.
+
+Next, you want to set a color for your technology. Under `name-colors` add a new line. For this example it will be `"python": "YELLOW"`.
+
+The colors you can currently use are
+
+```
+BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET
+LIGHTBLACK_EX, LIGHTRED_EX, LIGHTGREEN_EX, LIGHTYELLOW_EX, LIGHTBLUE_EX, LIGHTMAGENTA_EX, LIGHTCYAN_EX, LIGHTWHITE_EX
+```

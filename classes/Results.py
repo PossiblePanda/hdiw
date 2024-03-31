@@ -1,27 +1,18 @@
 from colorama import Fore
+import json
 
-name_colors = {
-	"godot": Fore.CYAN,
-	"unity": Fore.LIGHTBLACK_EX,
-	"cocos2d": Fore.BLUE,
-	"steamworks api": Fore.LIGHTCYAN_EX,
-	"microsoft xna": Fore.GREEN,
-	".net framework": Fore.MAGENTA,
-	"eft themes": Fore.LIGHTGREEN_EX,
-	"python": Fore.YELLOW,
-	"c#": Fore.LIGHTYELLOW_EX,
-	"c++": Fore.LIGHTBLACK_EX,
-	"java": Fore.LIGHTRED_EX,
-	"source engine": Fore.LIGHTRED_EX,
-	"sqlite": Fore.LIGHTGREEN_EX,
-	"unreal engine 4": Fore.BLACK,
-	"ffmpeg": Fore.LIGHTRED_EX,
-	"php": Fore.MAGENTA,
-	"lua": Fore.LIGHTBLUE_EX,
-	"shell script": Fore.BLACK,
-	"love framework": Fore.LIGHTBLUE_EX,
-	"ubisoft anvil": Fore.LIGHTYELLOW_EX
-}
+name_colors = {}
+
+with open('main.json', 'r') as file:
+	data = file.read()
+	
+	name_colors = json.loads(data)["name-colors"]
+
+	for i in name_colors.keys():
+		v = name_colors[i]
+		
+		name_colors[i] = getattr(Fore, v)
+
 
 class Result:
 	def __init__(self, name:str, chance:int) -> None:
