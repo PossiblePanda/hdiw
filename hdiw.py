@@ -3,6 +3,7 @@ from os.path import isfile, join
 from colorama import init, Fore
 from argparse import ArgumentParser, Namespace
 import json
+import time
 
 import utils
 from classes.Results import Result, Results
@@ -11,11 +12,13 @@ parser = ArgumentParser(epilog=f"Thanks for using HDIW! \nGitHub: {Fore.GREEN}ht
 
 parser.add_argument("dir", help="The directory of the program")
 
-parser.add_argument("-v", action="store_true", help="Adds messages to indicate what is going on in the program")
+parser.add_argument("-v", "--verbose", action="store_true", help="Adds messages to indicate what is going on in the program")
 
-parser.add_argument("-d", action="store_true", help="Searches binaries for common technologies. May take longer to scan")
+parser.add_argument("-d", "--deep", action="store_true", help="Searches binaries for common technologies. May take longer to scan")
 
 cfg: dict
+
+start = time.time()
 
 with open('main.json', 'r') as file:
 	data = file.read()
@@ -31,8 +34,8 @@ results: Results = Results()
 
 print(f"{Fore.GREEN}Gathering Info")
 
-for f in utils.get_file_descendents(args.dir, args.v):
-	if args.v:
+for f in utils.get_file_descendents(args.dir, args.verbose):
+	if args.verbose:
 		print(f"{Fore.LIGHTGREEN_EX}Gathering results for {Fore.GREEN}{f}{Fore.RESET}")
 	
 	
@@ -48,13 +51,13 @@ for f in utils.get_file_descendents(args.dir, args.v):
 		if i.lower() in f.file_name.lower():
 			results.add_to_results(v["name"], v["chance"], v["category"])
 	
-	if args.d:
+	if args.deep:
 		if f.file_name.endswith(".exe"):
 			try:
 				file = open(f.path, "rb")
 				array = file.read()
 
-				if args.v:
+				if args.verbose:
 					print(f"{Fore.MAGENTA}Deep Searching {f.path}{Fore.RESET}")
 
 				ansi: str = array.decode("ansi")
@@ -86,5 +89,9 @@ for i in results.results.keys():
 		result = Result(i2, r)
 
 		results_string = f"{results_string} - {result.text}\n"
+
+end = time.time()
+
+print(f"{Fore.LIGHTCYAN_EX}Time Elapsed: {Fore.CYAN}{round(end - start, 2)}s{Fore.RESET}\n")
 
 print(results_string)
