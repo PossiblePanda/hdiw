@@ -76,6 +76,9 @@ for f in utils.get_file_descendents(args.path, args.verbose):
 print(f"{Fore.GREEN}Generating Results\n")
 
 results_none_found: str = f"{Fore.RED}No results have been found!{Fore.RESET}"
+if args.deep == False:
+	results_none_found += f"\n{Fore.MAGENTA}Try running HDIW with the {Fore.LIGHTMAGENTA_EX}-h flag."
+
 results_string: str = results_none_found
 
 print(f"{Fore.YELLOW}------------Results------------{Fore.RESET}\n")
