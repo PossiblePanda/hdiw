@@ -143,6 +143,13 @@
 			"category": "Other"
 		}
 	},
+	"deep-contains": {
+		"Godot Engine": {
+			"name": "Godot",
+			"chance": 100,
+			"category": "Game Engines"
+		}
+	},
 	"name-colors": {
 		"godot": "CYAN",
 		"unity": "LIGHTBLACK_EX",

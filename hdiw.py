@@ -13,6 +13,8 @@ parser.add_argument("dir", help="The directory of the program")
 
 parser.add_argument("-v", action="store_true", help="Adds messages to indicate what is going on in the program")
 
+parser.add_argument("-d", action="store_true", help="Searches binaries for common technologies. May take longer to scan")
+
 cfg: dict
 
 with open('main.json', 'r') as file:
@@ -45,7 +47,25 @@ for f in utils.get_file_descendents(args.dir, args.v):
 
 		if i.lower() in f.file_name.lower():
 			results.add_to_results(v["name"], v["chance"], v["category"])
+	
+	if args.d:
+		if f.file_name.endswith(".exe"):
+			try:
+				file = open(f.path, "rb")
+				array = file.read()
 
+				if args.v:
+					print(f"{Fore.MAGENTA}Deep Searching {f.path}{Fore.RESET}")
+
+				ansi: str = array.decode("ansi")
+				
+				for i in cfg["deep-contains"].keys():
+					v = cfg["deep-contains"][i]
+
+					if i in ansi:
+						results.add_to_results(v["name"], v["chance"], v["category"])
+			except:
+				print(f"{Fore.LIGHTRED_EX}Unable to open {Fore.RED}{f.path}{Fore.RESET}")
 
 print(f"{Fore.GREEN}Generating Results\n")
 
