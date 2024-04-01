@@ -32,11 +32,25 @@ init()
 
 results: Results = Results()
 
-print(f"{Fore.GREEN}Gathering Info")
+print(f"{Fore.GREEN}Gathering Info{Fore.RESET}")
+
+ignore = []
+try:
+	with open(f'{args.path}\\hdiwignore.json', 'r') as file:
+		data = file.read()
+		
+		load = json.loads(data)
+
+		for l in load:
+			ignore.append(f"{args.path}\\{l}")
+
+except:
+	if args.verbose:
+		print(f"{Fore.YELLOW}No hdiwignore found, ignoring.{Fore.RESET}")
 
 scanned = 0
 
-for f in utils.get_file_descendents(args.path, args.verbose):
+for f in utils.get_file_descendents(args.path, args.verbose, ignore):
 	scanned += 1
 	if args.verbose:
 		print(f"{Fore.LIGHTGREEN_EX}Gathering results for {Fore.GREEN}{f}{Fore.RESET}")
@@ -100,6 +114,6 @@ end = time.time()
 
 print(f"""{Fore.LIGHTCYAN_EX}Time Elapsed: {Fore.BLUE}{round(end - start, 2)}s
 {Fore.LIGHTCYAN_EX}Files Searched: {Fore.BLUE}{scanned}{Fore.RESET}
-{Fore.LIGHTCYAN_EX}Results Found: {Fore.BLUE}{results.result_count}\n{Fore.RESET}""")
+{Fore.LIGHTCYAN_EX}Results Found: {Fore.BLUE}{results.result_count}{Fore.RESET}\n""")
 
 print(results_string)

@@ -2,7 +2,7 @@ import os
 from colorama import Fore
 from classes.File import *
 
-def get_file_descendents(path, verbose, root=True):
+def get_file_descendents(path, verbose, ignore, root=True):
 	files = [File(path)]
 
 	if not os.path.isdir(path):
@@ -16,8 +16,10 @@ def get_file_descendents(path, verbose, root=True):
 		try:
 			files.append(File(global_path))
 			if os.path.isdir(global_path):
-				for v in get_file_descendents(global_path, verbose, False):
-					files.append(v)
+				for v in get_file_descendents(global_path, verbose, ignore, False):
+					for i in ignore:
+						if i != global_path:
+							files.append(v)
 		except:
 			print(f"{Fore.LIGHTRED_EX}Failed to open {Fore.RED}{global_path}")
 	return files
