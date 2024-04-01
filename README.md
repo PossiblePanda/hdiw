@@ -16,10 +16,6 @@ The most common way of using HDIW is on games, you just need to copy the game's 
 
 To install HDIW you can simply just download the zip from github, and then unzip it. To test if it works you can type run the command `python3 hdiw.py -h`. If you get a help message, you have succesfully installed HDIW!
 
-## Contributing
-
-There are many things that HDIW needs help with, whether it's adding new Game Engines / Frameworks, or optimizations, bugfixes, or quality of life features. We're always open to accepting pull requests!
-
 ## hdiwignore.json
 
 Let's say you want to scan a directory, but there's some folders in there you don't want to scan. That's what hdiwignore is for! To utilize hdiwignore, make a file called `hdiwignore.json` in the directory you want to scan, and then just put a json list of the files / directories you want to ignore!
@@ -31,6 +27,10 @@ For example:
 ```
 
 would ignore everything in the bin folder, and ignore theme.eft.
+
+## Contributing
+
+There are many things that HDIW needs help with, whether it's adding new Game Engines / Frameworks, or optimizations, bugfixes, or quality of life features. We're always open to accepting pull requests!
 
 ### Adding New Technologies
 
