@@ -34,7 +34,10 @@ results: Results = Results()
 
 print(f"{Fore.GREEN}Gathering Info")
 
+scanned = 0
+
 for f in utils.get_file_descendents(args.dir, args.verbose):
+	scanned += 1
 	if args.verbose:
 		print(f"{Fore.LIGHTGREEN_EX}Gathering results for {Fore.GREEN}{f}{Fore.RESET}")
 	
@@ -92,6 +95,7 @@ for i in results.results.keys():
 
 end = time.time()
 
-print(f"{Fore.LIGHTCYAN_EX}Time Elapsed: {Fore.CYAN}{round(end - start, 2)}s{Fore.RESET}\n")
+print(f"""{Fore.LIGHTCYAN_EX}Time Elapsed: {Fore.CYAN}{round(end - start, 2)}s
+{Fore.LIGHTCYAN_EX}Files Searched: {Fore.CYAN}{scanned}\n{Fore.RESET}""")
 
 print(results_string)
