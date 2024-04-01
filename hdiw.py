@@ -10,7 +10,7 @@ from classes.Results import Result, Results
 
 parser = ArgumentParser(epilog=f"Thanks for using HDIW! \nGitHub: {Fore.GREEN}https://github.com/possiblepanda/hdiw{Fore.RESET}")
 
-parser.add_argument("dir", help="The directory of the program")
+parser.add_argument("path", help="The path of the program, Directory, or file.")
 
 parser.add_argument("-v", "--verbose", action="store_true", help="Adds messages to indicate what is going on in the program")
 
@@ -36,7 +36,7 @@ print(f"{Fore.GREEN}Gathering Info")
 
 scanned = 0
 
-for f in utils.get_file_descendents(args.dir, args.verbose):
+for f in utils.get_file_descendents(args.path, args.verbose):
 	scanned += 1
 	if args.verbose:
 		print(f"{Fore.LIGHTGREEN_EX}Gathering results for {Fore.GREEN}{f}{Fore.RESET}")
@@ -95,7 +95,7 @@ for i in results.results.keys():
 
 end = time.time()
 
-print(f"""{Fore.LIGHTCYAN_EX}Time Elapsed: {Fore.CYAN}{round(end - start, 2)}s
-{Fore.LIGHTCYAN_EX}Files Searched: {Fore.CYAN}{scanned}\n{Fore.RESET}""")
+print(f"""{Fore.LIGHTCYAN_EX}Time Elapsed: {Fore.BLUE}{round(end - start, 2)}s
+{Fore.LIGHTCYAN_EX}Files Searched: {Fore.BLUE}{scanned}\n{Fore.RESET}""")
 
 print(results_string)

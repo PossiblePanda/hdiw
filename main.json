@@ -148,6 +148,16 @@
 			"name": "Godot",
 			"chance": 100,
 			"category": "Game Engines"
+		},
+		"UnityPlayer": {
+			"name": "Unity",
+			"chance": 100,
+			"category": "Game Engines"
+		},
+		"GodotFirebase": {
+			"name": "Firebase",
+			"chance": 100,
+			"category": "Databases"
 		}
 	},
 	"name-colors": {
@@ -173,6 +183,7 @@
 		"ubisoft anvil": "LIGHTYELLOW_EX",
 		"javascript": "LIGHTRED_EX",
 		"react js": "LIGHTBLUE_EX",
-		"vue js": "LIGHTGREEN_EX"
+		"vue js": "LIGHTGREEN_EX",
+		"firebase": "LIGHTRED_EX"
 	}
 }
