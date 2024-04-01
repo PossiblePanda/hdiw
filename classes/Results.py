@@ -35,8 +35,10 @@ class Result:
 class Results:
 	def __init__(self) -> None:
 		self.results = {}
+		self.result_count = 0
 
 	def add_to_results(self, name: str, value: int, category: str = "Other"):
+		self.result_count += 1
 		if category in self.results:
 			if name in self.results[category]:
 				if value > self.results[category][name]:

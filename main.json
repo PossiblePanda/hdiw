@@ -88,7 +88,7 @@
 			"category": "Game Engines"
 		},
 		"cocos2d": {
-			"name": "Cocos2D",
+			"name": "Cocos2Dx",
 			"chance": 100,
 			"category": "Game Engines"
 		},
@@ -158,6 +158,11 @@
 			"name": "Firebase",
 			"chance": 100,
 			"category": "Databases"
+		},
+		"https://www.cocos2d-x.org": {
+			"name": "Cocos2Dx",
+			"chance": 100,
+			"category": "Game Engines"
 		}
 	},
 	"name-colors": {

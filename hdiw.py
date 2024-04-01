@@ -77,7 +77,7 @@ print(f"{Fore.GREEN}Generating Results\n")
 
 results_none_found: str = f"{Fore.RED}No results have been found!{Fore.RESET}"
 if args.deep == False:
-	results_none_found += f"\n{Fore.MAGENTA}Try running HDIW with the {Fore.LIGHTMAGENTA_EX}-h flag."
+	results_none_found += f"\n{Fore.MAGENTA}Try running HDIW with the {Fore.LIGHTMAGENTA_EX}-h{Fore.MAGENTA} flag."
 
 results_string: str = results_none_found
 
@@ -99,6 +99,7 @@ for i in results.results.keys():
 end = time.time()
 
 print(f"""{Fore.LIGHTCYAN_EX}Time Elapsed: {Fore.BLUE}{round(end - start, 2)}s
-{Fore.LIGHTCYAN_EX}Files Searched: {Fore.BLUE}{scanned}\n{Fore.RESET}""")
+{Fore.LIGHTCYAN_EX}Files Searched: {Fore.BLUE}{scanned}{Fore.RESET}
+{Fore.LIGHTCYAN_EX}Results Found: {Fore.BLUE}{results.result_count}\n{Fore.RESET}""")
 
 print(results_string)
