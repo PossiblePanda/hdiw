@@ -20,6 +20,18 @@ To install HDIW you can simply just download the zip from github, and then unzip
 
 There are many things that HDIW needs help with, whether it's adding new Game Engines / Frameworks, or optimizations, bugfixes, or quality of life features. We're always open to accepting pull requests!
 
+## hdiwignore.json
+
+Let's say you want to scan a directory, but there's some folders in there you don't want to scan. That's what hdiwignore is for! To utilize hdiwignore, make a file called `hdiwignore.json` in the directory you want to scan, and then just put a json list of the files / directories you want to ignore!
+
+For example:
+
+```json
+["bin", "theme.eft"]
+```
+
+would ignore everything in the bin folder, and ignore theme.eft.
+
 ### Adding New Technologies
 
 To add a new technology, open the `main.json` file. You will see `file-extension`, `name-contains`, and `name-colors`. Let's say you want to make files ending with .py add Python as a result, you would add the following to `file-extension`:
